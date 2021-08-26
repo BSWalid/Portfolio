@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('admin.index');
+})->middleware(['auth'])->name('dashboard');
+
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+
+    Route::resource('service', ServiceController::class );
+
+
+
+});
+require __DIR__.'/auth.php';
