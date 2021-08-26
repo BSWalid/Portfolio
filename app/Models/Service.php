@@ -9,6 +9,10 @@ class Service extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title','description','isactive','img','contribution'];
 
-    protected $fillable = ['title','description','isactive'];
+    public function projects(){
+
+        return $this->hasMany(Project::class);
+    }
 }

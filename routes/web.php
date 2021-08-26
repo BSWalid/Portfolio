@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ProjectController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::get('/dashboard', function () {
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
     Route::resource('service', ServiceController::class );
+    Route::resource('project', ProjectController::class );
 
 
 

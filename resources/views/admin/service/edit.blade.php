@@ -35,8 +35,8 @@
                     <label class="col-sm-2 control-label">Is active</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="isactive">
-                            <option value="1" selected>active</option>
-                            <option value="0">inactive</option>
+                            <option value="1" {{ $service->isactive ? "selected" : "" }}>active</option>
+                            <option value="0" {{ $service->isactive ? "" : "selected" }}>inactive</option>
 
                         </select>
 

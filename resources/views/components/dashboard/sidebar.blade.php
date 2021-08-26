@@ -30,6 +30,13 @@
                 </ul>
             </li>
 
+            <li class="menu-list"><a href=""><i class="mdi mdi-buffer"></i> <span>{{__('Project')}}</span></a>
+                <ul class="child-list">
+                    <li><a href="{{route('project.index')}}">{{__('My Projects')}}</a></li>
+
+                </ul>
+            </li>
+
         </ul><!--sidebar nav end-->
     </div>
 </div><!-- sidebar left end-->
