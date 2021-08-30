@@ -37,6 +37,15 @@
                 </ul>
             </li>
 
+            <li class="menu-list"><a href=""><i class="mdi mdi-buffer"></i> <span>{{__('Information')}}</span></a>
+                <ul class="child-list">
+                    <li><a href="{{route('personalinfo.index')}}">{{__('Bio')}}</a></li>
+                    <li><a href="{{route('links.index')}}">{{__('Links')}}</a></li>
+                    <li><a href="{{route('technologies.index')}}">{{__('Technologoies')}}</a></li>
+
+                </ul>
+            </li>
+
         </ul><!--sidebar nav end-->
     </div>
 </div><!-- sidebar left end-->

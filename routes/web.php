@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProjectController;
-use App\Models\Service;
+use App\Http\Controllers\PersonalinfoController;
+use App\Http\Controllers\LinkController;
+use App\Http\Controllers\TechnologyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
     Route::resource('service', ServiceController::class );
     Route::resource('project', ProjectController::class );
+    Route::resource('personalinfo', PersonalinfoController::class );
+    Route::resource('links', LinkController::class );
+    Route::resource('technologies', TechnologyController::class );
 
 
 
