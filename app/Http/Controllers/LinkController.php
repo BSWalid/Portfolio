@@ -39,7 +39,7 @@ class LinkController extends Controller
     public function store(StoreLinkRequest $request)
     {
         $request->validated();
-        $request['icon'] ='something';
+
         Link::create([
             'name'=>$request->name,
             'url'=>$request->url,

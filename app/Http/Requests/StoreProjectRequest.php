@@ -28,6 +28,8 @@ class StoreProjectRequest extends FormRequest
             'description'=>'required',
             'contribution'=>'required',
             'service'=>'required',
+            'img'=>'required|mimes:jpg,jpeg,png|max:512',
+
 
         ];
     }

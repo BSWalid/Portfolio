@@ -39,9 +39,8 @@
 
                                         <tr role="row" class="{{ $key % 2 == 0 ? 'odd' : 'even' }}">
                                             <td class="sorting_1">{{$link->name}}</td>
-                                            <td>some Icon later</td>
                                             <td>{{ $link->url }}</td>
-                                            <td>{{ $link->icon }}</td>
+                                            <td><i class="{{$link->icon}}"></i></td>
                                             <td style="white-space: nowrap; width: 15%;">
 
                                                 <a href="{{route('links.edit',$link->id)}}"><button type="button" class="btn btn-primary">

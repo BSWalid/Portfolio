@@ -17,4 +17,9 @@ class Project extends Model
 
         return $this->belongsTo(Service::class);
     }
+
+    public function getImgAttribute($value)
+    {
+        return "images/uploaded_images/project_images/" . $value;
+    }
 }

@@ -1,7 +1,7 @@
 <div class="edina_tm_hero" id="home">
     <div class="content">
         <div class="image">
-            <div class="main" data-img-url="{{asset('images/homepage/hero/2.jpg')}}" style="background-image: url(&quot;img/hero/2.jpg&quot;);"></div>
+            <div class="main" data-img-url="{{asset("$personalinfo->img")}}" style="background-image: url(&quot;{{asset("$personalinfo->img")}}&quot;);"></div>
         </div>
         <div class="extra">
             <h3 class="name">{{$personalinfo->name}}</h3>
@@ -9,7 +9,7 @@
             <div class="social">
                 <ul>
                     @foreach ($links as $link)
-                    <li><a href="{{$link->url}}"><img class="svg custom" src="{{asset('images/homepage/svg/social/fb.svg')}}" alt=""></a></li>
+                    <li><a target="_blank" href="{{$link->url}}"><i class="  {{$link->icon}} fa-2x" style="color: #000"  alt=""></i></li>
                     @endforeach
                 </ul>
             </div>

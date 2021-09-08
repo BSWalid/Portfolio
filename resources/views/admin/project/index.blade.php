@@ -1,4 +1,6 @@
+
 <x-app-layout>
+
     @section('content')
 
         <div class="page-head">
@@ -41,7 +43,7 @@
 
                                         <tr role="row" class="{{ $key % 2 == 0 ? 'odd' : 'even' }}">
                                             <td class="sorting_1">{{$project->title}}</td>
-                                            <td>some Icon later</td>
+                                            <td><img width="70px" height="70px" src="{{asset("$project->img")}}"><img></td>
                                             <td>{{ $project->isactive }}</td>
                                             <td>{{ $project->service->title }}</td>
                                             <td style="white-space: nowrap; width: 15%;">

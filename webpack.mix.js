@@ -11,10 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
+
+mix.sass('resources/sass/fontawesome.scss','public/css').copy(
+    'node_modules/@fortawesome/fontawesome-free/webfonts',
+    'public/webfonts'
+);
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
-
 
 mix.postCss('resources/css/slidebars.min.css', 'public/css', [
 ]);

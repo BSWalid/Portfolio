@@ -6,7 +6,9 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Service;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Storage;
+
 
 class ProjectController extends Controller
 {
@@ -44,6 +46,10 @@ class ProjectController extends Controller
     {
          $request->validated();
          $service= Service::findorfail($request->service);
+         $newImgName = time() . "-" . $request->title . '.' . $request->img->extension();
+
+         $request->img->storeAs('/project_images',$newImgName);
+
 
 
 
@@ -52,7 +58,7 @@ class ProjectController extends Controller
             'title'=>$request->title,
             'description'=> $request->description,
             'isactive'=>(boolean) $request->isactive,
-            'img'=>'someUrl',
+            'img'=>$newImgName,
             'contribution'=>$request->isactive,
 
         ]);
@@ -99,20 +105,55 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $request->validated();
+
+         $request->validated();
          $project= Project::findorfail($project->id);
 
 
 
-         $project->update([
 
-            'title'=>$request->title,
-            'description'=> $request->description,
-            'isactive'=>(boolean) $request->isactive,
-            'img'=>'someUrl',
-            'contribution'=>$request->isactive,
 
-        ]);
+
+        if($request->img)
+        {
+
+            $path ="project_images" . "/" . str_replace("images/uploaded_images/project_images/","",$request->old_image);
+
+            Storage::delete($path);
+            $newImgName = time() . "-" . $request->title . '.' . $request->img->extension();
+            $request->img->storeAs('/project_images',$newImgName);
+
+
+
+            $project->update([
+
+                'title'=>$request->title,
+                'description'=> $request->description,
+                'isactive'=>(boolean) $request->isactive,
+                'contribution'=>$request->isactive,
+                'img' =>$newImgName,
+
+            ]);
+
+        }
+        else
+        {
+
+            $project->update([
+
+                'title'=>$request->title,
+                'description'=> $request->description,
+                'isactive'=>(boolean) $request->isactive,
+                'contribution'=>$request->isactive,
+
+            ]);
+
+
+        }
+
+
+
+
 
 
 

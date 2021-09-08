@@ -12,6 +12,9 @@
  <link rel="stylesheet" href="{{asset('css/app.css')}}">
  <link rel="stylesheet" href="{{asset('css/menu.css')}}">
  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+ <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
+
+ @yield('css')
 
 
 
@@ -55,17 +58,12 @@
 
     <!--app js-->
     <script src="{{asset('js/jquery.app.js')}}"></script>
-    <script>
 
-        jQuery(document).ready(function($) {
-            $('.counter').counterUp({
-            delay: 100,
-            time: 1200
-            });
-        });
-    </script>
-    <!-- Scripts -->
+
     @yield('scripts')
+
+
+
 </body>
 </html>
 

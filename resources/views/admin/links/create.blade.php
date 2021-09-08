@@ -1,4 +1,8 @@
 <x-app-layout>
+@section('css')
+<link rel="stylesheet" href="{{asset('css/plugins/icon-picker/fontawesome-iconpicker.css')}}">
+@endsection
+
 @section('content')
 
 <div class="page-head">
@@ -33,8 +37,17 @@
             <div class="form-group row">
                 <label class="col-md-2 control-label">Icon</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" name="icon" >
+
+                        <div class="input-group iconpicker-container">
+                            <input data-placement="bottomRight" class="form-control icp icp-auto iconpicker-element iconpicker-input" value="fas fa-archive" type="text" name="icon">
+
+                            <span class="input-group-addon"><i class="fas fa-ad"></i></span>
+
+                        </div>
+
                 </div>
+
+
             </div>
 
             <div class="form-group row">
@@ -53,6 +66,7 @@
             </div>
 
 
+
         </form>
     </div>
 </div>
@@ -61,11 +75,14 @@
 @endsection
 
 @section('scripts')
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script src="{{asset('js/plugins/icon-picker/fontawesome-iconpicker.js')}}"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-       $('.ckeditor').ckeditor();
-    });
+
+        $('.icp-auto').iconpicker({
+            placement:'inline',
+        });
+
+
 </script>
 @endsection
 </x-app-layout>

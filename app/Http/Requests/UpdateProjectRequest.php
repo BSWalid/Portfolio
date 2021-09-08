@@ -29,6 +29,7 @@ class UpdateProjectRequest extends FormRequest
             'description'=>'required',
             'contribution'=>'required',
             'service'=>'required',
+            'img'=>'required_if:old_image,null',
 
         ];
     }

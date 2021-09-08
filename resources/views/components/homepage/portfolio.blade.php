@@ -10,9 +10,10 @@
                     @foreach ($projects as $project)
                     <li>
                         <div class="list_inner">
+
                             <div class="image">
-                                <img src="{{asset('images/homepage/thumbs/1-1.jpg')}}" alt="" />
-                                <div class="main" data-img-url="{{asset('images/homepage/news/2.jpg')}}"></div>
+                            <img src="{{asset("$project->img")}}" alt="" />
+
                                 <a class="edina_tm_full_link" href="#"></a>
                             </div>
                             <div class="news_details">
