@@ -40,7 +40,7 @@
 
                                         <tr role="row" class="{{ $key % 2 == 0 ? 'odd' : 'even' }}">
                                             <td class="sorting_1">{{$service->title}}</td>
-                                            <td>some Icon later</td>
+                                            <td><img width="70px" height="70px" src="{{asset("$service->icon")}}"><img></td>
                                             <td>{{ $service->isactive }}</td>
                                             <td style="white-space: nowrap; width: 15%;">
 

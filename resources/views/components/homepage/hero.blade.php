@@ -9,7 +9,7 @@
             <div class="social">
                 <ul>
                     @foreach ($links as $link)
-                    <li><a target="_blank" href="{{$link->url}}"><i class="  {{$link->icon}} fa-2x" style="color: #000"  alt=""></i></li>
+                    <li><a target="_blank" href="{{$link->url}}"><i class="  {{$link->icon}} fa-2x" style="color: #000"  alt=""></i></a></li>
                     @endforeach
                 </ul>
             </div>

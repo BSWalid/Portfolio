@@ -26,6 +26,8 @@ class UpdateServiceRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
+            'icon'=>'required_if:old_image,null',
+
         ];
     }
 }

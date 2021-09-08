@@ -12,7 +12,7 @@
 
                                 <li class="wow fadeInLeft" data-wow-duration="1s" style="visibility: hidden; animation-duration: 1s; animation-name: none;">
                                     <div class="list_inner">
-                                        <img class="svg custom" src="img/svg/1.svg" alt="">
+                                        <img class="svg custom" src="{{asset("$service->icon")}}" alt="">
                                         <div class="service_title"><h3>{{$service->name}}</h3></div>
                                         <a class="learn_more" href="#">Learn More<span></span></a>
                                         <a class="edina_tm_full_link" href="#"></a>

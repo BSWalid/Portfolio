@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
-use Illuminate\Http\Request;
+use Storage;
 
 class ServiceController extends Controller
 {
@@ -40,10 +40,16 @@ class ServiceController extends Controller
     public function store(StoreServiceRequest $request)
     {
          $request->validated();
+
+        $newImgName = time() . "-" . $request->title . '.' . $request->icon->extension();
+
+        $request->icon->storeAs('/service_images',$newImgName);
+
          Service::create([
              'title'=>$request->title,
              'description'=> $request->description,
              'isactive'=>(boolean) $request->isactive,
+             'icon'=>$newImgName,
          ]);
          return redirect()->route('service.index');
     }
@@ -89,11 +95,37 @@ class ServiceController extends Controller
         $request->validated();
         $service = Service::findorfail($service->id);
 
-        $service->update([
-            'title'=>$request->title,
-            'description'=> $request->description,
-            'isactive'=> $request->isactive,
-        ]);
+
+        if($request->icon)
+        {
+
+
+
+            $path ="service_images" . "/" . str_replace("images/uploaded_images/service_images/","",$request->old_image);
+
+            Storage::delete($path);
+            $newImgName = time() . "-" . $request->title . '.' . $request->icon->extension();
+            $request->icon->storeAs('/service_images',$newImgName);
+            $service->update([
+                'title'=>$request->title,
+                'description'=> $request->description,
+                'isactive'=> $request->isactive,
+                'icon'=> $newImgName,
+            ]);
+
+
+        }else{
+
+            $service->update([
+                'title'=>$request->title,
+                'description'=> $request->description,
+                'isactive'=> $request->isactive,
+
+            ]);
+        }
+
+
+
         return redirect()->route('service.index');
 
 
