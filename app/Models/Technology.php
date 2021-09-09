@@ -9,5 +9,10 @@ class Technology extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','icon'];
+        protected $fillable = ['name','icon'];
+
+        public function getIconAttribute($value)
+        {
+            return "images/uploaded_images/technologies_images/" . $value;
+        }
 }

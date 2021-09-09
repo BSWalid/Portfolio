@@ -25,7 +25,8 @@ class UpdateTechnoogyRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'icon'=>'required',
+            'icon'=>'required_if:old_image,null',
+
         ];
     }
 }

@@ -34,7 +34,7 @@
                                 @foreach ($technologies as $key=>$technology)
                                     @if ($key%2!=0)
                                         <div class="progress_inner" data-value="95">
-                                            <span class="label opened">React.Js</span>
+                                            <span class="label opened"></span>
                                         </div>
 
                                     @endif

@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateTechnoogyRequest;
 use App\Models\Link;
 use App\Models\Technology;
 use Illuminate\Http\Request;
+use Storage;
 
 class TechnologyController extends Controller
 {
@@ -42,10 +43,14 @@ class TechnologyController extends Controller
     public function store(StoreTechnoogyRequest $request)
     {
         $request->validated();
-        $request['icon'] ='something';
+
+        $newImgName = time() . "-" . $request->name . '.' . $request->icon->extension();
+        $request->icon->storeAs('/technologies_images',$newImgName);
+
+
         Technology::create([
             'name'=>$request->name,
-            'icon'=>$request->icon,
+            'icon'=>$newImgName,
 
         ]);
         return redirect()->route('technologies.index');
@@ -89,11 +94,31 @@ class TechnologyController extends Controller
         $request->validated();
         $technologyRequested = Technology::findorfail($technology->id);
 
-        $technologyRequested -> update([
-            'name'=>$request->name,
-            'icon'=>$request->icon,
+        if($request->icon)
+        {
 
-        ]);
+
+
+            $path ="technologies_images" . "/" . str_replace("images/uploaded_images/technologies_images/","",$request->old_image);
+
+            Storage::delete($path);
+            $newImgName = time() . "-" . $request->name . '.' . $request->icon->extension();
+            $request->icon->storeAs('/technologies_images',$newImgName);
+
+            $technologyRequested -> update([
+                'name'=>$request->name,
+                'icon'=>$newImgName
+
+            ]);
+
+        }else
+        {
+            $technologyRequested -> update([
+                'name'=>$request->name,
+            ]);
+
+        }
+
 
         return redirect()->route('technologies.index');
 

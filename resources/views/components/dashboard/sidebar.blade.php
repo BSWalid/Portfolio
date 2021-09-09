@@ -21,23 +21,23 @@
                 <h3 class="navigation-title">Service</h3>
             </li>
             <li class="active">
-                <a href="index.html"><i class="mdi mdi-gauge"></i> <span>{{__('Dashboard')}}</span></a>
+                <a href="{{route('dashboard')}}"><i class="fas fa-home fa-2x"></i><span>{{__('Dashboard')}}</span></a>
             </li>
-            <li class="menu-list"><a href=""><i class="mdi mdi-buffer"></i> <span>{{__('Service')}}</span></a>
+            <li class="menu-list"><a href=""><i class="fas fa-home fa-2x"></i> <span>{{__('Service')}}</span></a>
                 <ul class="child-list">
                     <li><a href="{{route('service.index')}}">{{__('My Services')}}</a></li>
 
                 </ul>
             </li>
 
-            <li class="menu-list"><a href=""><i class="mdi mdi-buffer"></i> <span>{{__('Project')}}</span></a>
+            <li class="menu-list"><a href=""><i class="fas fa-passport fa-2x"></i> <span>{{__('Project')}}</span></a>
                 <ul class="child-list">
                     <li><a href="{{route('project.index')}}">{{__('My Projects')}}</a></li>
 
                 </ul>
             </li>
 
-            <li class="menu-list"><a href=""><i class="mdi mdi-buffer"></i> <span>{{__('Information')}}</span></a>
+            <li class="menu-list"><a href=""><i class="fas fa-info fa-2x"></i> <span>{{__('Information')}}</span></a>
                 <ul class="child-list">
                     <li><a href="{{route('personalinfo.index')}}">{{__('Bio')}}</a></li>
                     <li><a href="{{route('links.index')}}">{{__('Links')}}</a></li>

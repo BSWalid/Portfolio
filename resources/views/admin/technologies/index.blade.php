@@ -37,8 +37,9 @@
                                         @foreach ($technologies as $key=>$technology)
 
                                         <tr role="row" class="{{ $key % 2 == 0 ? 'odd' : 'even' }}">
+
                                             <td class="sorting_1">{{$technology->name}}</td>
-                                            <td>{{ $technology->icon }}</td>
+                                            <td><img width="70px" height="70px" src="{{asset("$technology->icon")}}"><img></td>
                                             <td style="white-space: nowrap; width: 15%;">
 
                                                 <a href="{{route('technologies.edit',$technology->id)}}"><button type="button" class="btn btn-primary">
