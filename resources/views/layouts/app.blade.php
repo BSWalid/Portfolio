@@ -21,7 +21,7 @@
 
 
 
- <title>{{ config('app.name', 'Laravel') }}</title>
+ <title>{{  'Portfolio Dashbaord' }}</title>
 
  </head>
  <body class="sticky-header">

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\dashboard;
 
+use App\Models\PersonalInfo;
 use Illuminate\View\Component;
 
 class sidebar extends Component
@@ -11,9 +12,10 @@ class sidebar extends Component
      *
      * @return void
      */
+    public $personalinfo;
     public function __construct()
     {
-        //
+        $this->personalinfo = PersonalInfo::first();
     }
 
     /**
@@ -23,6 +25,6 @@ class sidebar extends Component
      */
     public function render()
     {
-        return view('components.dashboard.sidebar');
+        return view('components.dashboard.sidebar',['personalinfo'=>$this->personalinfo]);
     }
 }
