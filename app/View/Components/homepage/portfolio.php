@@ -15,8 +15,7 @@ class portfolio extends Component
     public $projects;
     public function __construct()
     {
-        $this->projects = Project::all();
-
+        $this->projects = Project::where('isactive',1)->get();
     }
 
     /**

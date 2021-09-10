@@ -15,7 +15,7 @@ class services extends Component
     public $services;
     public function __construct()
     {
-        $this->services = Service::where('isactive',1)->get()->take(5);
+        $this->services = Service::where('isactive',1)->get();
     }
 
     /**

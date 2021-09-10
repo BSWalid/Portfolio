@@ -20,6 +20,6 @@ class Project extends Model
 
     public function getImgAttribute($value)
     {
-        return "images/uploaded_images/project_images/" . $value;
+        return "images/uploaded_images/project_images/".$this->title.'/'. $value;
     }
 }

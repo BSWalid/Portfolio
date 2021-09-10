@@ -97,10 +97,7 @@ class TechnologyController extends Controller
         if($request->icon)
         {
 
-
-
             $path ="technologies_images" . "/" . str_replace("images/uploaded_images/technologies_images/","",$request->old_image);
-
             Storage::delete($path);
             $newImgName = time() . "-" . $request->name . '.' . $request->icon->extension();
             $request->icon->storeAs('/technologies_images',$newImgName);
@@ -132,7 +129,13 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
+
+
         technology::destroy($technology->id);
+        //delete related image
+        $path ="technologies_images" . "/" . str_replace("images/uploaded_images/technologies_images/","",$technology->icon);
+        Storage::delete($path);
+
         return redirect()->route('technologies.index');
     }
 }

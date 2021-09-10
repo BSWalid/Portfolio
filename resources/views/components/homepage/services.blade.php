@@ -3,7 +3,7 @@
                 <div class="container">
                     <div class="edina_tm_title">
                         <h3>What I Do</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum sit nibh amet egestas tellus.</p>
+                        <p>I provide the most wonderful services related to web development</p>
                     </div>
                     <div class="service_list">
                         <ul>

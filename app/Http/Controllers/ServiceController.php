@@ -141,6 +141,11 @@ class ServiceController extends Controller
     {
 
         Service::destroy($service->id);
+
+        //delete images related
+        $path ="service_images" . "/" . str_replace("images/uploaded_images/service_images/","",$service->icon);
+        Storage::delete($path);
+
         return redirect()->route('service.index');
 
     }

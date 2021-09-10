@@ -48,7 +48,7 @@ class ProjectController extends Controller
          $service= Service::findorfail($request->service);
          $newImgName = time() . "-" . $request->title . '.' . $request->img->extension();
 
-         $request->img->storeAs('/project_images',$newImgName);
+         $request->img->storeAs('/project_images'.'/'.$request->title.'/',$newImgName);
 
 
 
@@ -121,7 +121,8 @@ class ProjectController extends Controller
 
             Storage::delete($path);
             $newImgName = time() . "-" . $request->title . '.' . $request->img->extension();
-            $request->img->storeAs('/project_images',$newImgName);
+            $request->img->storeAs('/project_images'.'/'.$request->title.'/',$newImgName);
+
 
 
 
@@ -172,6 +173,11 @@ class ProjectController extends Controller
     {
 
         Project::destroy($project->id);
+
+        //delete images related
+        $path ="project_images" . "/" . str_replace("images/uploaded_images/project_images/","",$project->img);
+        Storage::delete($path);
+
         return redirect()->route('project.index');
 
     }
