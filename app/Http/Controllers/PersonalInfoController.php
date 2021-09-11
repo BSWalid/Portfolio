@@ -90,6 +90,8 @@ class PersonalInfoController extends Controller
                 'name'=>$request->name,
                 'short_bio'=>$request->short_bio,
                 'about_me'=>$request->about_me,
+                'email'=>$request->email,
+                'phone'=>$request->phone,
                 'img'=>$newImgName,
 
             ]);
@@ -102,6 +104,8 @@ class PersonalInfoController extends Controller
                 'name'=>$request->name,
                 'short_bio'=>$request->short_bio,
                 'about_me'=>$request->about_me,
+                'email'=>$request->email,
+                'phone'=>$request->phone,
 
             ]);
 

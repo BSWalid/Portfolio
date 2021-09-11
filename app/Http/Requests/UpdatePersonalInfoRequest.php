@@ -27,6 +27,9 @@ class UpdatePersonalInfoRequest extends FormRequest
             'name'=>'required',
             'short_bio'=>'required',
             'about_me'=>'required',
+            'phone'=>'required',
+            'email'=>'required',
+
         ];
     }
 }

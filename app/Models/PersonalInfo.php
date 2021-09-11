@@ -9,7 +9,7 @@ class PersonalInfo extends Model
 {
     use HasFactory;
 
-    protected $fillable =['name','img','short_bio','about_me','bio_igm'];
+    protected $fillable =['name','emai','phone','img','short_bio','about_me','bio_igm'];
 
     public function getImgAttribute($value)
     {

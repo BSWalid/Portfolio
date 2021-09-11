@@ -30,14 +30,15 @@
         <div class="right-notification">
             <ul class="notification-menu">
 
-
-
                 <li>
                     <a href="javascript:;" data-toggle="dropdown">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-menu">
-                        <a class="dropdown-item" href="{{route('logout')}}"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                        <form method="POST" action="{{route('logout')}}">
+                            @csrf
+                            <button type="submit" class="dropdown-item" ><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</button>
+                        </form>
                     </div>
 
                 </li>

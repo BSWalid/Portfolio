@@ -2,6 +2,7 @@
 
 namespace App\View\Components\homepage;
 
+use App\Models\PersonalInfo;
 use Illuminate\View\Component;
 
 class contact extends Component
@@ -11,9 +12,10 @@ class contact extends Component
      *
      * @return void
      */
+    public $personalinfo;
     public function __construct()
     {
-        //
+        $this->personalinfo = PersonalInfo::first();
     }
 
     /**
@@ -23,6 +25,6 @@ class contact extends Component
      */
     public function render()
     {
-        return view('components.homepage.contact');
+        return view('components.homepage.contact',['personalinfo'=>$this->personalinfo]);
     }
 }

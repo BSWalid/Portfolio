@@ -35,6 +35,18 @@
                         <input type="text" class="form-control" name="name" value="{{$personalinfo->name}}" >
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-md-2 control-label">Email</label>
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" name="email" value="{{$personalinfo->email}}" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 control-label">Phone</label>
+                    <div class="col-md-10">
+                        <input type="phone" class="form-control" name="phone" value="{{$personalinfo->phone}}" >
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 control-label">Profile Image</label>

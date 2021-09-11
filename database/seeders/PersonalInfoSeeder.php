@@ -21,6 +21,8 @@ class PersonalInfoSeeder extends Seeder
             'short_bio'=>'short bio',
             'about_me'=>'about me section ',
             'bio_img'=>'some img',
+            'phone'=>'+2135516849',
+            'email'=>'email@email.com',
 
         ]);
     }
