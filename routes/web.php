@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PersonalinfoController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\TechnologyController;
+use App\Models\PersonalInfo;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -27,29 +29,7 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth'])->name('dashboard');
 
-Route::post('/sendmail',function(){
-    request()->validate([
-        'name'=>'required',
-            'email'=>'required',
-            'message'=>'required',
-            'phone'=>'required',
-    ]);
-        $details=[
-            'name'=>request('name'),
-            'email'=>request('email'),
-            'message'=>request('message'),
-            'phone'=>request('phone'),
-        ];
-
-
-        Mail::to($details['email'])->send(new \App\Mail\ContacMe($details));
-
-        return redirect()->route('home');
-
-
-
-
-})->name('mail');
+Route::post('/sendmail',[ContactMeController::class,'sendmail'])->name('mail');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 

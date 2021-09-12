@@ -76,40 +76,70 @@ class PersonalInfoController extends Controller
         $request->validated();
         $personalInfo=PersonalInfo::findorfail($personalInfo);
 
-        if($request->img)
+
+        if (!$request->img && !$request->bio_img)
         {
 
-            $path ="personalinfo_images" . "/" . str_replace("images/uploaded_images/personalinfo_images/","",$request->old_image);
+            $request->img =str_replace("images/uploaded_images/personalinfo_images/avatar","",$request->old_img);
+            $request->bio_img = str_replace("images/uploaded_images/personalinfo_images/bioimages","",$request->old_bio_img);
+
+        }else if($request->img && $request->bio_img){
+
+            $path = str_replace("images/uploaded_images/","",$request->old_img);
+            Storage::delete($path);
+            $newImgName = time() .  '.' . $request->img->extension();
+            $request->img->storeAs('/personalinfo_images/avatar',$newImgName);
+            $request->img = $newImgName;
+
+
+            $path = str_replace("images/uploaded_images/","",$request->old_bio_img);
+
+            Storage::delete($path);
+            $newBioImgName = time() .  '.' . $request->bio_img->extension();
+            $request->bio_img->storeAs('/personalinfo_images/bioimages',$newBioImgName);
+            $request->bio_img = $newBioImgName;
+
+        }else if( $request->img && !$request->bio ){
+
+
+            $path = str_replace("images/uploaded_images","",$request->old_img);
+
 
             Storage::delete($path);
             $newImgName = time() .  '.' . $request->img->extension();
-            $request->img->storeAs('/personalinfo_images',$newImgName);
+            $request->img->storeAs('/personalinfo_images/avatar',$newImgName);
+            $request->img = $newImgName;
+            $request->bio_img = str_replace("images/uploaded_images/personalinfo_images/bioimages","",$request->old_bio_img);
 
-            $personalInfo->update([
-
-                'name'=>$request->name,
-                'short_bio'=>$request->short_bio,
-                'about_me'=>$request->about_me,
-                'email'=>$request->email,
-                'phone'=>$request->phone,
-                'img'=>$newImgName,
-
-            ]);
-
-        }else
-        {
-
-            $personalInfo->update([
-
-                'name'=>$request->name,
-                'short_bio'=>$request->short_bio,
-                'about_me'=>$request->about_me,
-                'email'=>$request->email,
-                'phone'=>$request->phone,
-
-            ]);
 
         }
+        else{
+
+
+            $path =str_replace("images/uploaded_images","",$request->old_bio_img);
+            Storage::delete($path);
+            $newBioImgName = time() .  '.' . $request->bio_img->extension();
+            $request->bio_img->storeAs('/personalinfo_images/bioimages',$newBioImgName);
+            $request->bio_img = $newBioImgName;
+
+            $request->img =str_replace("images/uploaded_images/personalinfo_images/avatar","",$request->old_img);
+
+
+        }
+
+
+        $personalInfo->update([
+
+            'name'=>$request->name,
+            'short_bio'=>$request->short_bio,
+            'about_me'=>$request->about_me,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'img'=>$request->img,
+            'bio_img'=>$request->bio_img,
+            'experience'=>$request->experience,
+
+        ]);
 
 
 

@@ -24,11 +24,13 @@ class UpdatePersonalInfoRequest extends FormRequest
     public function rules()
     {
         return [
+
             'name'=>'required',
             'short_bio'=>'required',
             'about_me'=>'required',
             'phone'=>'required',
             'email'=>'required',
+            'experience'=>'required',
 
         ];
     }

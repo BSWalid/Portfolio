@@ -23,6 +23,8 @@ class PersonalInfoSeeder extends Seeder
             'bio_img'=>'some img',
             'phone'=>'+2135516849',
             'email'=>'email@email.com',
+            'experience'=>'1',
+
 
         ]);
     }

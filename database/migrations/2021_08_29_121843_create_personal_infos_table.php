@@ -20,6 +20,7 @@ class CreatePersonalInfosTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('experience');
             $table->string('short_bio');
             $table->text('about_me');
             $table->string('bio_img');

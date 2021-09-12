@@ -70,7 +70,43 @@
                                     <button type="button" class="dropify-clear">Remove</button>
                                     <div class="dropify-preview">
                                     <span class="dropify-render">
-                                        <img src="{{asset("$personalinfo->img")}}" alt="">
+                                    </span>
+                                    <div class="dropify-infos">
+                                        <div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span>
+                                            <span class="dropify-filename-inner"></span></p>
+                                            <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Bio Image</label>
+
+                    <div class="col-sm-10">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <h5 class="header-title">Project Image</h5>
+                                <label for="input-file-now">Your so fresh input file — Default version</label>
+                                <div class="dropify-wrapper">
+                                    <div class="dropify-message">
+                                        <span class="file-icon"></span>
+                                        <p>Drag and drop a file here or click</p>
+                                        <p class="dropify-error">Ooops, something wrong appended.</p>
+                                    </div>
+                                    <div class="dropify-loader"></div>
+                                    <div class="dropify-errors-container">
+                                        <ul></ul>
+                                    </div>
+                                    <input type="file" id="input-file-now" class="dropify" name="bio_img">
+                                    <button type="button" class="dropify-clear">Remove</button>
+                                    <div class="dropify-preview">
+                                    <span class="dropify-render">
                                     </span>
                                     <div class="dropify-infos">
                                         <div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span>
@@ -92,6 +128,13 @@
                         <input type="text" class="form-control" name="short_bio" value="{{$personalinfo->short_bio}}" >
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-md-2 control-label">Experience</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="experience" value="{{$personalinfo->experience}}" >
+                    </div>
+                </div>
+
 
                 <div class="form-group row">
                     <label class="col-md-2 control-label" for="example-email">about_me</label>
@@ -108,7 +151,21 @@
                         <div class="card m-b-30">
                             <div class="card-body">
                                 <img height="500px" width="500px" src="{{asset("$personalinfo->img")}}" alt="">
-                                <input type="hidden" name="old_image" value="{{$personalinfo->img}}">
+                                <input type="hidden" name="old_img" value="{{$personalinfo->img}}">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Bio Image</label>
+
+                    <div class="col-sm-10">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <img height="500px" width="500px" src="{{asset("$personalinfo->bio_img")}}" alt="">
+                                <input type="hidden" name="old_bio_img" value="{{$personalinfo->bio_img}}">
                             </div>
                         </div>
                     </div>
